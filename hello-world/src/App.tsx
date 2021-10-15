@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'components/Greets'
+import Greets from "./components/Greets";
 
 function App() {
   const name = 'Patty'
   const grret = (name: string) => <p>Hello, {name ||'Guest'}</p>
   const testN = Math.floor(Math.random() * 10)
   const threshold = 5
-  const list = ['Patty', 'Rolley', 'Bobby']
   return (
     <div className="App">
       <header className="App-header">
@@ -34,14 +35,9 @@ function App() {
           <p>'n' is { testN % 2 === 0 ? 'even' : 'odd'}</p>
         </div>
       </header>
-      {/*
-        ここは別ファイルに分離した方が良い
-      */}
-      <ul>
-        { list.map( (name) => (
-          <li>Hello, { name } </li>
-        ))}
-      </ul>
+      <Greets name={"Patty"}>
+        <span role="img" aria-label="rabbit">hoge</span>
+      </Greets>
     </div>
   );
 }
