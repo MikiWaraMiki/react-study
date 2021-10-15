@@ -3,10 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const name = 'Patty'
+  const grret = (name: string) => <p>Hello, {name ||'Guest'}</p>
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          {grret(name)}
+        </p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
