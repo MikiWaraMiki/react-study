@@ -5,6 +5,8 @@ import './App.css';
 function App() {
   const name = 'Patty'
   const grret = (name: string) => <p>Hello, {name ||'Guest'}</p>
+  const testN = Math.floor(Math.random() * 10)
+  const threshold = 5
   return (
     <div className="App">
       <header className="App-header">
@@ -26,6 +28,10 @@ function App() {
         >
           Learn React
         </a>
+        <div>
+          { testN > threshold && <p> 'testN' is larger than { threshold } </p>}
+          <p>'n' is { testN % 2 === 0 ? 'even' : 'odd'}</p>
+        </div>
       </header>
     </div>
   );
