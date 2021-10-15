@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'components/Greets'
+import Greets from "components/Greets";
 import TextInput from "components/TextInput";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <p>'n' is { testN % 2 === 0 ? 'even' : 'odd'}</p>
         </div>
       </header>
+      <Greets name="hogege" times={3} />
       <TextInput></TextInput>
     </div>
   );
