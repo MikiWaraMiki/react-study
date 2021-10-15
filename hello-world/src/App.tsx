@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'components/Greets'
-import Greets from "./components/Greets";
+import TextInput from "components/TextInput";
 
 function App() {
   const name = 'Patty'
@@ -35,9 +35,7 @@ function App() {
           <p>'n' is { testN % 2 === 0 ? 'even' : 'odd'}</p>
         </div>
       </header>
-      <Greets name={"Patty"}>
-        <span role="img" aria-label="rabbit">hoge</span>
-      </Greets>
+      <TextInput></TextInput>
     </div>
   );
 }
