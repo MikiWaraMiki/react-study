@@ -34,6 +34,9 @@ function App() {
           <p>'n' is { testN % 2 === 0 ? 'even' : 'odd'}</p>
         </div>
       </header>
+      {/*
+        ここは別ファイルに分離した方が良い
+      */}
       <ul>
         { list.map( (name) => (
           <li>Hello, { name } </li>
