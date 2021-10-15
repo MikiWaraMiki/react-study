@@ -7,6 +7,7 @@ function App() {
   const grret = (name: string) => <p>Hello, {name ||'Guest'}</p>
   const testN = Math.floor(Math.random() * 10)
   const threshold = 5
+  const list = ['Patty', 'Rolley', 'Bobby']
   return (
     <div className="App">
       <header className="App-header">
@@ -33,6 +34,11 @@ function App() {
           <p>'n' is { testN % 2 === 0 ? 'even' : 'odd'}</p>
         </div>
       </header>
+      <ul>
+        { list.map( (name) => (
+          <li>Hello, { name } </li>
+        ))}
+      </ul>
     </div>
   );
 }
