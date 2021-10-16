@@ -41,6 +41,12 @@ module.exports = {
       {
         exceptAfterSingleLine: true
       }
+    ],
+    'no-void': [
+      'error',
+      {
+        allowStatement: true
+      }
     ]
   }
 };
