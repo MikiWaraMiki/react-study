@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 
-ReactDOM.render(<Timer limit={60} />, document.getElementById('root'));
+ReactDOM.render(<Timer limit={120} />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
