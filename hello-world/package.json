@@ -20,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "preinstall": "typesync || :"
+    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,ts,jsx,tsx}",
+    "postinstall": "typesync"
   },
   "eslintConfig": {
     "extends": [
