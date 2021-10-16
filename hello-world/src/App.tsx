@@ -1,31 +1,18 @@
-import { VFC, useEffect } from 'react';
-import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router';
+import { VFC } from 'react';
 
-import Home from 'components/pages/Home';
-import Characters from 'components/pages/Characters';
+import ColorfulBeads from 'containers/molecules/ColorfulBeads';
+import CounterBoard from 'containers/organisms/CounterBoard';
+
 import './App.css';
 
-const App: VFC = () => {
-  const { hash, pathname } = useLocation();
-  const { action } = useHistory();
-
-  useEffect(() => {
-    if (!hash || action !== 'POP') {
-      window.scrollTo(0, 0);
-    }
-  }, [action, hash, pathname]);
-
-  return (
-    <div className="container">
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/characters" component={Characters} />
-        <Redirect to="/" />
-      </Switch>
-    </div>
-  );
-};
+const App: VFC = () => (
+  <div className="container">
+    <header>
+      <h1>ビーズカウンター</h1>
+    </header>
+    <CounterBoard />
+    <ColorfulBeads />
+  </div>
+);
 
 export default App;

@@ -1,15 +1,19 @@
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import reportWebVitals from './reportWebVitals';
 
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { counterReducer, initialState } from 'reducer';
 import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const store = createStore(counterReducer, initialState);
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
     <App />
-  </BrowserRouter>,
+  </Provider>,
   document.getElementById('root'),
 );
 
