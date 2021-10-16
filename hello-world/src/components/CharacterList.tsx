@@ -13,11 +13,7 @@ type Props = {
   characters: Character[];
 };
 
-const CharacterList: VFC<Props> = (props) => {
-  const { school, characters } = props;
-  // レンダリングしたい内容をreturn
-  
-  return (
+const CharacterList: VFC<Props> = ({school, characters}) => (
     <>
       <Header as="h2">{school}</Header>
       <Item.Group>
@@ -28,7 +24,7 @@ const CharacterList: VFC<Props> = (props) => {
               <Item.Header>{character.name}</Item.Header>
               <Item.Meta>{character.grade}年生</Item.Meta>
               <Item.Meta>
-                {character.height ? character.height : '???'}
+                {character.height ?? '???'}
                 cm
               </Item.Meta>
             </Item.Content>
@@ -36,7 +32,6 @@ const CharacterList: VFC<Props> = (props) => {
         ))}
       </Item.Group>
     </>
-  );
-};
+);
 
 export default CharacterList;
