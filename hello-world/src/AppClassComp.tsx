@@ -1,4 +1,4 @@
-import { Component, ReactElement} from "react";
+import {Component, ReactElement, SyntheticEvent} from "react";
 import './App.css'
 import {Button, Card, Statistic} from "semantic-ui-react";
 
@@ -10,11 +10,13 @@ class AppClassComp extends Component<unknown, State> {
     this.state = { count: 0 }
   }
 
-  reset = (): void  => {
+  reset = (e: SyntheticEvent): void  => {
+    e.preventDefault()
     this.setState({count: 0})
   }
 
-  increment = (): void  => {
+  increment = (e: SyntheticEvent): void  => {
+    e.preventDefault()
     this.setState((state) => ({count: state.count + 1}))
   }
 
