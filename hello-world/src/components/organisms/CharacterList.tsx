@@ -19,8 +19,10 @@ const CharactersList: VFC<Props> = ({ characters = [], isLoading = false }) => (
             <Icon name="user circle" size="huge" />
             <Item.Content>
               <Item.Header>{character.name}</Item.Header>
-              <Item.Meta>{character}年生</Item.Meta>
-              <Item.Meta>{character.height ?? '???'} cm</Item.Meta>
+              <Item.Meta>
+                <span>{character.grade}年生</span>
+                <span>{character.height ?? '???'}cm</span>
+              </Item.Meta>
             </Item.Content>
           </Item>
         ))}

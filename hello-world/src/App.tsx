@@ -1,27 +1,31 @@
-import './App.css';
-import { VFC } from 'react';
-import Timer from 'containers/Timer';
-import { Redirect, Route, Switch } from 'react-router';
-import Home from 'components/pages/Home';
-import User from 'components/pages/User';
-import NotFound from 'components/pages/404';
+import { VFC, useEffect } from 'react';
+import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router';
 
-const App: VFC = () => (
-  <Switch>
-    <Route exact path="/">
-      <Home />
-    </Route>
-    <Redirect from="/user/profile/:userId" to="/user/:userId" />
-    <Route path="/user/:userId">
-      <User />
-    </Route>
-    <Route path="/timer">
-      <Timer limit={50} />
-    </Route>
-    <Route>
-      <NotFound />
-    </Route>
-  </Switch>
-);
+import Home from 'components/pages/Home';
+import Characters from 'components/pages/Characters';
+import './App.css';
+
+const App: VFC = () => {
+  const { hash, pathname } = useLocation();
+  const { action } = useHistory();
+
+  useEffect(() => {
+    if (!hash || action !== 'POP') {
+      window.scrollTo(0, 0);
+    }
+  }, [action, hash, pathname]);
+
+  return (
+    <div className="container">
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/characters" component={Characters} />
+        <Redirect to="/" />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;

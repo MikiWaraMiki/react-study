@@ -15,7 +15,7 @@ const SchoolList: VFC<Props> = ({ schoolList = [] }) => (
     <List as="ul">
       {schoolList.map((school) => (
         <List.Item as="li" key={school.code}>
-          <Link to={`/characters/${school.code}`} />
+          <Link to={`/characters/${school.code}`}>{school.name}</Link>
         </List.Item>
       ))}
     </List>
