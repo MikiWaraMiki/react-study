@@ -65,6 +65,16 @@ module.exports = {
         'ignoreRestSiblings': false,
         'varsIgnorePattern': '_'
       }
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
     ]
   }
 };
