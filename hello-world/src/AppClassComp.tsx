@@ -10,11 +10,11 @@ class AppClassComp extends Component<unknown, State> {
     this.state = { count: 0 }
   }
 
-  reset(): void {
+  reset = (): void  => {
     this.setState({count: 0})
   }
 
-  increment(): void {
+  increment = (): void  => {
     this.setState((state) => ({count: state.count + 1}))
   }
 
@@ -33,10 +33,10 @@ class AppClassComp extends Component<unknown, State> {
           </Statistic>
           <Card.Content>
             <div className="ui two buttons">
-              <Button color="red" onClick={ () => this.reset()}>
+              <Button color="red" onClick={this.reset}>
                 Reset
               </Button>
-              <Button color="green" onClick={ () => this.increment()}>
+              <Button color="green" onClick={this.increment}>
                 +1
               </Button>
             </div>
