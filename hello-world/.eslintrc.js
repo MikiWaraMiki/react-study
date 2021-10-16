@@ -18,7 +18,7 @@ module.exports = {
       "jsx": true
     },
     "ecmaVersion": 12,
-    "project": './tsconfig.eslint.json',
+    "project": './.tsconfig.eslint.json',
     "sourceType": "module",
     tsconfigRootDir: __dirname
   },
@@ -45,7 +45,7 @@ module.exports = {
     'no-void': [
       'error',
       {
-        allowStatement: true
+        allowAsStatement: true
       }
     ],
     'padding-line-between-statements': [
@@ -101,7 +101,7 @@ module.exports = {
     }
   ],
   settings: {
-    'imoprt/resolver': {
+    'import/resolver': {
       node: {
         paths: ['src']
       }

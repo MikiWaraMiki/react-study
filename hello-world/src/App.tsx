@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { FC } from 'react';
+import Greets from 'components/Greets';
+import TextInput from 'components/TextInput';
 import logo from './logo.svg';
 import './App.css';
-import 'components/Greets'
-import Greets from "components/Greets";
-import TextInput from "components/TextInput";
 
-function App() {
-  const name = 'Patty'
-  const grret = (name: string) => <p>Hello, {name ||'Guest'}</p>
-  const testN = Math.floor(Math.random() * 10)
-  const threshold = 5
+const App: FC = () => {
+  const name = 'Patty';
+  const grret = (displayName: string) => (
+    <p>
+      Hello,
+      {displayName || 'Guest'}
+    </p>
+  );
+  const testN = Math.floor(Math.random() * 10);
+  const threshold = 5;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +23,11 @@ function App() {
           {grret(name)}
         </p>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit
+          {' '}
+          <code>src/App.tsx</code>
+          {' '}
+          and save to reload.
         </p>
         <p>
           Hello World.
@@ -32,14 +41,22 @@ function App() {
           Learn React
         </a>
         <div>
-          { testN > threshold && <p> 'testN' is larger than { threshold } </p>}
-          <p>'n' is { testN % 2 === 0 ? 'even' : 'odd'}</p>
+          { testN > threshold && (
+          <p>
+            testN is larger than
+            { threshold }
+          </p>
+          )}
+          <p>
+            n is
+            { testN % 2 === 0 ? 'even' : 'odd'}
+          </p>
         </div>
       </header>
       <Greets name="hogege" times={3} />
-      <TextInput></TextInput>
+      <TextInput />
     </div>
   );
-}
+};
 
 export default App;
