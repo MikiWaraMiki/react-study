@@ -1,13 +1,11 @@
 import ReactDOM from 'react-dom';
-// import App from './App';
-// import Counter from './Counter';
-import Timer from './Timer';
 import reportWebVitals from './reportWebVitals';
 
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
+import App from './App';
 
-ReactDOM.render(<Timer limit={120} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
