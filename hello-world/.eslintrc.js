@@ -55,6 +55,16 @@ module.exports = {
         prev: '*',
         next: 'return'
       }
+    ],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        'vars': 'all',
+        'args': 'after-used',
+        'argsIgnorePattern': '_',
+        'ignoreRestSiblings': false,
+        'varsIgnorePattern': '_'
+      }
     ]
   }
 };
