@@ -1,66 +1,59 @@
-import {Component, ReactElement} from "react";
-import './App.css'
-import {Button, Card, Statistic, Icon} from "semantic-ui-react";
+// eslint-disable-next-line react/destructuring-assignment
+import { Component, ReactElement, VFC } from 'react';
+import './App.css';
+import { Button, Card, Statistic, Icon } from 'semantic-ui-react';
 
-const LIMIT = 60
-type State = { timeLeft: number }
+const LIMIT = 60;
+type InjectedProps = {
+  count: number;
+  reset: () => void;
+  increment: () => void;
+};
+type Props = { max: number };
+type State = { count: number };
 
-class AppClassComp extends Component<unknown, State> {
-  // eslint-disable-next-line react/sort-comp
-  timerId: NodeJS.Timer | null = null
+const withCounter = (WrappedComponent: VFC<Props & Partial<InjectedProps>>) =>
+  class EnhancedComponent extends Component<Props, State> {
+    constructor(props: Props) {
+      super(props);
+      this.state = { count: 0 };
+    }
 
-  constructor(props: unknown) {
-    super(props);
-    this.state = { timeLeft: LIMIT }
-  }
+    reset = (): void => this.setState({ count: 0 });
+    increment = (): void =>
+      this.setState((prevState) => ({ count: prevState.count + 1 }));
 
-  // コンポーネントがマウントされた直後
-  componentDidMount = (): void => {
-    this.timerId = setInterval(this.tick, 1000)
-  }
+    componentDidUpdate = (): void => {
+      if (this.state.count > this.props.max) this.reset();
+    };
 
-  // コンポーネントが再レンダリングされた直後
-  componentDidUpdate = (): void => {
-    const {timeLeft} = this.state
-    if (timeLeft === 0 ) this.reset()
-  }
+    render = (): ReactElement => (
+      <WrappedComponent
+        max={this.props.max}
+        count={this.state.count}
+        reset={this.reset}
+        increment={this.increment}
+      />
+    );
+  };
 
-  // コンポーネントがアンマウントされて破棄される直前
-  componentWillUnmount = (): void => {
-    if (this.timerId) clearInterval(this.timerId)
-  }
+const CounterComponent: VFC<Props & Partial<InjectedProps>> = ({
+  max,
+  count = 0,
+  reset = () => undefined,
+  increment = () => undefined
+}) => (
+  <div>
+    <div>
+      {count} / {max}
+    </div>
+    <button onClick={reset} type"button">
+      Reset
+    </button>
+    <button onClick={increment} type={"button"}>
+      +1
+    </button>
+  </div>
+)
 
-  tick = (): void =>
-    this.setState((prevState) => ({timeLeft: prevState.timeLeft - 1}))
-
-  reset = (): void =>
-    this.setState({timeLeft: LIMIT} )
-
-  render(): ReactElement {
-    const { timeLeft } = this.state
-
-    return (
-      <div className="container">
-        <header>
-          <h1>カウンター</h1>
-        </header>
-        <Card>
-          <Statistic className="number-board">
-            <Statistic.Label>time</Statistic.Label>
-            <Statistic.Value>{timeLeft}</Statistic.Value>
-          </Statistic>
-          <Card.Content>
-            <div className="ui two buttons">
-              <Button color="red" onClick={this.reset}>
-                <Icon name="redo"/>
-                Reset
-              </Button>
-            </div>
-          </Card.Content>
-        </Card>
-      </div>
-    )
-  }
-}
-
-export default AppClassComp
+export default withCounter(CounterComponent)

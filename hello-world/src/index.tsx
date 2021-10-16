@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import AppClassComp from "./AppClassComp";
+import withCounter from './AppClassComp';
 import reportWebVitals from './reportWebVitals';
 
 import 'semantic-ui-css/semantic.min.css';
@@ -8,7 +8,7 @@ import './index.css';
 
 ReactDOM.render(
   <StrictMode>
-    <AppClassComp />
+    <withCounter />
   </StrictMode>,
   document.getElementById('root'),
 );
