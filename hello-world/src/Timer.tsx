@@ -2,6 +2,7 @@ import './Timer.css';
 import { useCallback, useEffect, useMemo, useState, VFC } from 'react';
 import { Button, Card, Icon, Statistic } from 'semantic-ui-react';
 import { getPrimes } from 'util/math-tool';
+import TextInput from './components/TextInput';
 
 type TimerProps = {
   limit: number;
@@ -40,6 +41,7 @@ const Timer: VFC<TimerProps> = ({ limit }) => {
           reset
         </Button>
       </Card.Content>
+      <TextInput />
     </Card>
   );
 };
