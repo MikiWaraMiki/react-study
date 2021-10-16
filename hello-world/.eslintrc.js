@@ -81,6 +81,15 @@ module.exports = {
       {
         extensions: ['.jsx', '.tsx']
       }
-    ]
+    ],
+    'react/jsx-props-no-spreading': [
+      'error',
+      {
+        html: 'enforce',
+        custom: 'enforce',
+        explicitSpread: 'ignore'
+      }
+    ],
+    'react/react-in-jsx-scope': 'off'
   }
 };
