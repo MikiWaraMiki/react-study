@@ -5,13 +5,13 @@ import { TriangleDownIcon } from '@chakra-ui/icons';
 type Props = {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  add: (e: KeyboardEvent) => void;
+  onKeyDown: (e: KeyboardEvent) => void;
 };
 
 const NewTodoForm: VFC<Props> = ({
   value = '',
   onChange = () => undefined,
-  add = () => undefined,
+  onKeyDown = () => undefined,
 }) => (
   <Flex>
     <IconButton
@@ -25,7 +25,7 @@ const NewTodoForm: VFC<Props> = ({
       placeholder="What needs to be done"
       size="lg"
       onChange={onChange}
-      onKeyDown={add}
+      onKeyDown={onKeyDown}
       value={value}
       pr="4.5rem"
     />

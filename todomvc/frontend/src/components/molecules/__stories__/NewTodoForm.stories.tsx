@@ -18,7 +18,7 @@ Default.args = {
   onChange: (event: ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value);
   },
-  add: (e: KeyboardEvent) => {
+  onKeyDown: (e: KeyboardEvent) => {
     console.log(e.key);
   },
 };

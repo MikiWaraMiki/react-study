@@ -1,10 +1,11 @@
 import { VFC } from 'react';
-import { genTodoList, TodoResponse } from '../../data/todo';
 import TodoList from '../../components/organisms/TodoList';
+import { Todo } from '../../domain/todo/Todo';
 
-const EnhancedTodoList: VFC = () => {
-  const todoList: TodoResponse[] = genTodoList(10, 10);
-
+type Props = {
+  todoList: Todo[];
+};
+const EnhancedTodoList: VFC<Props> = ({ todoList = [] }) => {
   const todoListRowProps = todoList.map((todo) => ({
     id: todo.id,
     title: todo.title,

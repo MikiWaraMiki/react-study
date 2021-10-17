@@ -1,8 +1,7 @@
 import React, { VFC } from 'react';
 import './App.css';
 import { ChakraProvider, Container, Heading } from '@chakra-ui/react';
-import EnhancedTodoList from './containers/oragnisms/TodoList';
-import EnhancedNewTodoForm from './containers/molecules/NewTodoForm';
+import EnhancedAllTodo from './containers/pages/AllTodo';
 
 const App: VFC = () => (
   <ChakraProvider>
@@ -11,9 +10,8 @@ const App: VFC = () => (
         <Heading size="lg" fontSize="50px">
           todos
         </Heading>
-        <EnhancedNewTodoForm />
-        <EnhancedTodoList />
       </div>
+      <EnhancedAllTodo />
     </Container>
   </ChakraProvider>
 );
