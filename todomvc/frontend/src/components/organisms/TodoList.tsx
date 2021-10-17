@@ -7,12 +7,14 @@ type TodoListProps = {
   todoList: Todo[];
   completed: (id: number) => void;
   resetComplete: (id: number) => void;
+  deleted: (id: number) => void;
 };
 
 const TodoList: VFC<TodoListProps> = ({
   todoList = [],
   completed = () => undefined,
   resetComplete = () => undefined,
+  deleted = () => undefined,
 }) => (
   <VStack
     divider={<StackDivider borderColor="gray.200" />}
@@ -25,6 +27,7 @@ const TodoList: VFC<TodoListProps> = ({
         todo={todo}
         completed={completed}
         resetComplete={resetComplete}
+        deleted={deleted}
       />
     ))}
   </VStack>

@@ -6,16 +6,19 @@ type Props = {
   todoList: Todo[];
   completed: (id: number) => void;
   resetComplete: (id: number) => void;
+  deleted: (id: number) => void;
 };
 const EnhancedTodoList: VFC<Props> = ({
   todoList = [],
   completed,
   resetComplete,
+  deleted,
 }) => (
   <TodoList
     todoList={todoList}
     completed={completed}
     resetComplete={resetComplete}
+    deleted={deleted}
   />
 );
 

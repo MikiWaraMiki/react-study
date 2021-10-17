@@ -3,7 +3,7 @@ import useTodos from '../../hooks/todo/todo-hooks';
 import AllTodo from '../../components/pages/AllTodo';
 
 const EnhancedAllTodo: VFC = () => {
-  const { todoList, add, completed, resetComplete } = useTodos();
+  const { todoList, add, completed, resetComplete, deleteById } = useTodos();
 
   return (
     <AllTodo
@@ -11,6 +11,7 @@ const EnhancedAllTodo: VFC = () => {
       add={add}
       completed={completed}
       resetComplete={resetComplete}
+      deleted={deleteById}
     />
   );
 };

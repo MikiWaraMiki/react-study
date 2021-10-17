@@ -6,9 +6,15 @@ type Props = {
   todo: Todo;
   completed: (id: number) => void;
   resetComplete: (id: number) => void;
+  deleted: (id: number) => void;
 };
 
-const EnhancedTodoRow: VFC<Props> = ({ todo, completed, resetComplete }) => {
+const EnhancedTodoRow: VFC<Props> = ({
+  todo,
+  completed,
+  resetComplete,
+  deleted,
+}) => {
   const onCheckBoxChanged = (_: ChangeEvent<HTMLInputElement>) => {
     if (todo && !todo.completedAt) {
       completed(todo.id);
@@ -17,12 +23,17 @@ const EnhancedTodoRow: VFC<Props> = ({ todo, completed, resetComplete }) => {
     }
   };
 
+  const onDeleteButtonClick = () => {
+    deleted(todo.id);
+  };
+
   return (
     <TodoRow
       id={todo.id}
       title={todo.title}
       isComplete={!!todo.completedAt}
       handleChange={onCheckBoxChanged}
+      handleClick={onDeleteButtonClick}
     />
   );
 };

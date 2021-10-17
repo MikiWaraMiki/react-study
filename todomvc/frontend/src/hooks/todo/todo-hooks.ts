@@ -45,14 +45,8 @@ const useTodos = (): ReturnValue => {
   const deleteById = useCallback((id: number) => {
     setTodoList((prev) => {
       const copy = [...prev];
-      const targetTodo = copy.find((todo) => todo.id === id);
-      if (!targetTodo) {
-        return copy;
-      }
 
-      copy.splice(targetTodo.id, 1);
-
-      return copy;
+      return copy.filter((todo) => todo.id !== id);
     });
   }, []);
 
