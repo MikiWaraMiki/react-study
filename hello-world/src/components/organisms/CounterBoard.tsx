@@ -2,7 +2,7 @@ import { VFC } from 'react';
 import { Button, Card, Statistic } from 'semantic-ui-react';
 
 const BULK_UNIT = 10;
-type Props = {
+export type CounterBoardProps = {
   count?: number;
   add?: (amount: number) => void;
   decrement?: () => void;
@@ -10,7 +10,7 @@ type Props = {
   reset?: () => void;
 };
 
-const CounterBoard: VFC<Props> = ({
+const CounterBoard: VFC<CounterBoardProps> = ({
   count = 0,
   add = () => undefined,
   decrement = () => undefined,
