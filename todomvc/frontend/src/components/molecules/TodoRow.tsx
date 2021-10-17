@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { Box, Checkbox, Text } from '@chakra-ui/react';
+import { Checkbox, Text } from '@chakra-ui/react';
 
 export type TodoRowProps = {
   text: string;

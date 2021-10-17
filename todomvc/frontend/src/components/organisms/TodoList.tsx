@@ -2,7 +2,7 @@ import { VFC } from 'react';
 import { StackDivider, VStack } from '@chakra-ui/react';
 import TodoRow, { TodoRowProps } from '../molecules/TodoRow';
 
-export type TodoListProps = {
+type TodoListProps = {
   todoList: TodoRowProps[];
 };
 

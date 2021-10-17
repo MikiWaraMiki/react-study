@@ -1,26 +1,19 @@
 import React, { VFC } from 'react';
-import TodoRow from './components/molecules/TodoRow';
-import logo from './logo.svg';
 import './App.css';
+import { ChakraProvider, Container, Heading } from '@chakra-ui/react';
+import EnhancedTodoList from './containers/oragnisms/TodoList';
 
 const App: VFC = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-    <TodoRow text="test" status="active" />
-  </div>
+  <ChakraProvider>
+    <Container maxW="xl">
+      <div className="App">
+        <Heading size="lg" fontSize="50px">
+          Todos
+        </Heading>
+        <EnhancedTodoList />
+      </div>
+    </Container>
+  </ChakraProvider>
 );
 
 export default App;
