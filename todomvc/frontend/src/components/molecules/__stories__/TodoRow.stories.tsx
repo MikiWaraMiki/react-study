@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import TodoRow from './TodoRow';
+import TodoRow from '../TodoRow';
 
 export default {
   component: TodoRow,
@@ -13,11 +13,11 @@ const Template: ComponentStory<typeof TodoRow> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   text: 'Reactのコードをかく',
-  status: 'active',
+  isComplete: false,
 };
 
 export const Completed = Template.bind({});
 Completed.args = {
   text: '完了済みタスクの場合',
-  status: 'completed',
+  isComplete: true,
 };

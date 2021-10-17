@@ -3,16 +3,14 @@ import { Box, Checkbox, Text } from '@chakra-ui/react';
 
 export type TodoRowProps = {
   text: string;
-  status: 'active' | 'completed';
+  isComplete: boolean;
 };
-const TodoRow: VFC<TodoRowProps> = ({ text = '', status = 'active' }) => (
-  <Box h="40px" color="white">
-    <Checkbox isChecked={status === 'completed'} colorScheme="green" size="lg">
-      <Text as={status === 'completed' ? 'del' : undefined} fontSize="lg">
-        {text}
-      </Text>
-    </Checkbox>
-  </Box>
+const TodoRow: VFC<TodoRowProps> = ({ text = '', isComplete = false }) => (
+  <Checkbox isChecked={isComplete} colorScheme="green" size="lg">
+    <Text as={isComplete ? 'del' : undefined} fontSize="lg">
+      {text}
+    </Text>
+  </Checkbox>
 );
 
 export default TodoRow;
