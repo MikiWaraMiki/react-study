@@ -28,8 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}",
-    "lint:fix": "eslint --fix 'src/**/*.{js,ts,jsx,tsx}",
+    "lint": "eslint './src/**/*.{js,ts,jsx,tsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{js,ts,jsx,tsx}'",
     "postinstall": "typesync"
   },
   "eslintConfig": {

@@ -21,8 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}",
-    "lint:fix": "eslint --fix 'src/**/*.{js,ts,jsx,tsx}",
+    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{js,ts,jsx,tsx}'",
     "postinstall": "typesync",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
