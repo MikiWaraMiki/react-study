@@ -13,7 +13,7 @@ const TodoList: VFC<TodoListProps> = ({ todoList = [] }) => (
     margin="auto"
   >
     {todoList.map((todo) => (
-      <TodoRow text={todo.text} isComplete={todo.isComplete} />
+      <TodoRow key={todo.text} text={todo.text} isComplete={todo.isComplete} />
     ))}
   </VStack>
 );
