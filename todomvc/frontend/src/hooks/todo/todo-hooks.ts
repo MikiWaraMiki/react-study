@@ -9,6 +9,7 @@ type ReturnValue = {
   add: (title: string) => void;
   deleteById: (id: number) => void;
   completed: (id: number) => void;
+  resetComplete: (id: number) => void;
 };
 const useTodos = (): ReturnValue => {
   const [todoList, setTodoList] = useState<Todo[]>([]);
@@ -68,6 +69,19 @@ const useTodos = (): ReturnValue => {
     });
   }, []);
 
+  const resetComplete = useCallback((id: number) => {
+    setTodoList((prev) => {
+      const copy = [...prev];
+      const index = copy.findIndex((t) => t.id === id);
+      if (index < 0) {
+        return copy;
+      }
+      copy[index].completedAt = null;
+
+      return copy;
+    });
+  }, []);
+
   useEffect(() => {
     fetch();
   }, [fetch]);
@@ -78,6 +92,7 @@ const useTodos = (): ReturnValue => {
     fetch,
     add,
     completed,
+    resetComplete,
     deleteById,
   };
 };
