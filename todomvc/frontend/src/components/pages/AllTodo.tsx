@@ -6,12 +6,17 @@ import TodoList from '../../containers/oragnisms/TodoList';
 type Props = {
   todoList: Todo[];
   add: (title: string) => void;
+  completed: (id: number) => void;
 };
 
-const AllTodo: VFC<Props> = ({ todoList = [], add = () => undefined }) => (
+const AllTodo: VFC<Props> = ({
+  todoList = [],
+  add = () => undefined,
+  completed = () => undefined,
+}) => (
   <>
     <TodoForm add={add} />
-    <TodoList todoList={todoList} />
+    <TodoList todoList={todoList} completed={completed} />
   </>
 );
 

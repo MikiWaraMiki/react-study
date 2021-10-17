@@ -16,12 +16,14 @@ Default.args = {
     {
       id: 1,
       title: 'タスク1',
-      isComplete: true,
+      createdAt: new Date(),
+      completedAt: null,
     },
     {
       id: 2,
       title: 'タスク2',
-      isComplete: false,
+      createdAt: new Date(),
+      completedAt: new Date(),
     },
   ],
 };

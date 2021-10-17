@@ -8,6 +8,7 @@ type ReturnValue = {
   fetch: () => void;
   add: (title: string) => void;
   deleteById: (id: number) => void;
+  completed: (id: number) => void;
 };
 const useTodos = (): ReturnValue => {
   const [todoList, setTodoList] = useState<Todo[]>([]);
@@ -43,12 +44,25 @@ const useTodos = (): ReturnValue => {
   const deleteById = useCallback((id: number) => {
     setTodoList((prev) => {
       const copy = [...prev];
-      const todo = copy.find((t) => t.id === id);
-      if (!todo) {
+      const targetTodo = copy.find((todo) => todo.id === id);
+      if (!targetTodo) {
         return copy;
       }
 
-      copy.splice(todo.id, 1);
+      copy.splice(targetTodo.id, 1);
+
+      return copy;
+    });
+  }, []);
+
+  const completed = useCallback((id: number) => {
+    setTodoList((prev) => {
+      const copy = [...prev];
+      const index = copy.findIndex((t) => t.id === id);
+      if (index < 0) {
+        return copy;
+      }
+      copy[index].completedAt = new Date();
 
       return copy;
     });
@@ -63,6 +77,7 @@ const useTodos = (): ReturnValue => {
     isLoading,
     fetch,
     add,
+    completed,
     deleteById,
   };
 };

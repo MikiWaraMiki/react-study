@@ -1,24 +1,21 @@
 import { VFC } from 'react';
 import { StackDivider, VStack } from '@chakra-ui/react';
-import TodoRow, { TodoRowProps } from '../molecules/TodoRow';
+import { Todo } from '../../domain/todo/Todo';
+import TodoRow from '../../containers/molecules/TodoRow';
 
 type TodoListProps = {
-  todoList: TodoRowProps[];
+  todoList: Todo[];
+  completed: (id: number) => void;
 };
 
-const TodoList: VFC<TodoListProps> = ({ todoList = [] }) => (
+const TodoList: VFC<TodoListProps> = ({ todoList = [], completed }) => (
   <VStack
     divider={<StackDivider borderColor="gray.200" />}
     align="stretch"
     margin="auto"
   >
     {todoList.map((todo) => (
-      <TodoRow
-        key={todo.id}
-        id={todo.id}
-        title={todo.title}
-        isComplete={todo.isComplete}
-      />
+      <TodoRow key={todo.id} todo={todo} completed={completed} />
     ))}
   </VStack>
 );

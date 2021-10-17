@@ -4,15 +4,10 @@ import { Todo } from '../../domain/todo/Todo';
 
 type Props = {
   todoList: Todo[];
+  completed: (id: number) => void;
 };
-const EnhancedTodoList: VFC<Props> = ({ todoList = [] }) => {
-  const todoListRowProps = todoList.map((todo) => ({
-    id: todo.id,
-    title: todo.title,
-    isComplete: !!todo.completedAt,
-  }));
-
-  return <TodoList todoList={todoListRowProps} />;
-};
+const EnhancedTodoList: VFC<Props> = ({ todoList = [], completed }) => (
+  <TodoList todoList={todoList} completed={completed} />
+);
 
 export default EnhancedTodoList;
