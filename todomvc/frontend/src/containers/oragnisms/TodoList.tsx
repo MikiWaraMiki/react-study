@@ -7,7 +7,8 @@ const EnhancedTodoList: VFC = () => {
   const todoList = genTodoList(10, 10);
 
   const todoListRowProps: TodoRowProps[] = todoList.map((todo) => ({
-    text: todo.title,
+    id: todo.id,
+    title: todo.title,
     isComplete: !!todo.completedAt,
   }));
 
