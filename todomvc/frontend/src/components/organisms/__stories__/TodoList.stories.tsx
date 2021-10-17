@@ -14,11 +14,13 @@ export const Default = Template.bind({});
 Default.args = {
   todoList: [
     {
-      text: 'タスク1',
+      id: 1,
+      title: 'タスク1',
       isComplete: true,
     },
     {
-      text: 'タスク2',
+      id: 2,
+      title: 'タスク2',
       isComplete: false,
     },
   ],

@@ -12,12 +12,14 @@ const Template: ComponentStory<typeof TodoRow> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  text: 'Reactのコードをかく',
+  id: 1,
+  title: 'Reactのコードをかく',
   isComplete: false,
 };
 
 export const Completed = Template.bind({});
 Completed.args = {
-  text: '完了済みタスクの場合',
+  id: 1,
+  title: '完了済みタスクの場合',
   isComplete: true,
 };

@@ -6,10 +6,14 @@ export type TodoRowProps = {
   title: string;
   isComplete: boolean;
 };
-const TodoRow: VFC<TodoRowProps> = ({ title = '', isComplete = false }) => (
+const TodoRow: VFC<TodoRowProps> = ({
+  id = 0,
+  title = '',
+  isComplete = false,
+}) => (
   <Checkbox isChecked={isComplete} colorScheme="green" size="lg">
     <Text as={isComplete ? 'del' : undefined} fontSize="lg">
-      {title}
+      {`${id}-${title}`}
     </Text>
   </Checkbox>
 );
