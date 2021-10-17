@@ -15,6 +15,7 @@ const EnhancedNewTodoForm: VFC<Props> = ({ add = () => undefined }) => {
   const onKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Enter' && title !== '') {
       add(title);
+      setTitle('');
     }
   };
 
