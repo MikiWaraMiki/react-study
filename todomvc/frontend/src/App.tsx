@@ -1,4 +1,5 @@
 import React, { VFC } from 'react';
+import TodoRow from './components/molecules/TodoRow';
 import logo from './logo.svg';
 import './App.css';
 
@@ -18,6 +19,7 @@ const App: VFC = () => (
         Learn React
       </a>
     </header>
+    <TodoRow text="test" status="active" />
   </div>
 );
 

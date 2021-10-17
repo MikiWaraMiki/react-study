@@ -18,6 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "strictBindCallApply": true,
     "jsx": "react-jsx"
   },
   "include": [
