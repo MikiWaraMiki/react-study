@@ -1,15 +1,17 @@
-import { ChangeEvent, VFC } from 'react';
+import { ChangeEvent, VFC, KeyboardEvent } from 'react';
 import { Flex, Input, IconButton } from '@chakra-ui/react';
 import { TriangleDownIcon } from '@chakra-ui/icons';
 
 type Props = {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  add: (e: KeyboardEvent) => void;
 };
 
 const NewTodoForm: VFC<Props> = ({
   value = '',
   onChange = () => undefined,
+  add = () => undefined,
 }) => (
   <Flex>
     <IconButton
@@ -23,8 +25,9 @@ const NewTodoForm: VFC<Props> = ({
       placeholder="What needs to be done"
       size="lg"
       onChange={onChange}
+      onKeyDown={add}
       value={value}
-      paddingX="6"
+      pr="4.5rem"
     />
   </Flex>
 );

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, KeyboardEvent } from 'react';
 import NewTodoForm from '../NewTodoForm';
 
 export default {
@@ -17,5 +17,8 @@ Default.args = {
   value,
   onChange: (event: ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value);
+  },
+  add: (e: KeyboardEvent) => {
+    console.log(e.key);
   },
 };
